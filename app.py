@@ -383,32 +383,29 @@ baseline_stocks, baseline_emissions, baseline_land_conv, baseline_adaptation, ba
 ##########################
 # Legend Style Definitions
 ##########################
-custom_legend_style = {"textAlign": "center", "marginTop": "2px"}
-baseline_legend_box = {
-    "backgroundColor": "#000000",
-    "color": "#FFFFFF",
-    "padding": "6px 12px",
-    "marginRight": "20px",
-    "marginBottom": "20px",
-    "fontWeight": "bold",
-    "borderRadius": "3px"
-}
-scenario_legend_box = {
-    "backgroundColor": "#00ADEE",
-    "color": "#FFFFFF",
-    "padding": "6px 12px",
-    "fontWeight": "bold",
-    "marginBottom": "20px",
-    "borderRadius": "3px"
-}
+# custom_legend_style = {"textAlign": "center", "marginTop": "2px"}
+# baseline_legend_box = {
+#     "backgroundColor": "#000000",
+#     "color": "#FFFFFF",
+#     "padding": "6px 12px",
+#     "marginRight": "20px",
+#     "marginBottom": "20px",
+#     "fontWeight": "bold",
+#     "borderRadius": "3px"
+# }
+# scenario_legend_box = {
+#     "backgroundColor": "#00ADEE",
+#     "color": "#FFFFFF",
+#     "padding": "6px 12px",
+#     "fontWeight": "bold",
+#     "marginBottom": "20px",
+#     "borderRadius": "3px"
+# }
 
 ##########################
 # 4. DASH APP LAYOUT
 ##########################
-#app = dash.Dash(__name__)
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
-server = app.server
-
+app = dash.Dash(__name__)
 app.title = "SDSS Spatial Decision Support System for Climate Action"
 
 slider_tooltips = {
@@ -600,10 +597,10 @@ left_aspatial_graph = dcc.Graph(
     style={"height": "300px", "position": "relative", "top": "-15px"}
 )
 
-left_aspatial_legend = html.Div([
-    html.Span("BASELINE", style=baseline_legend_box),
-    html.Span("CURRENT SCENARIO", style=scenario_legend_box)
-], style=custom_legend_style)
+# left_aspatial_legend = html.Div([
+#     html.Span("BASELINE", style=baseline_legend_box),
+#     html.Span("CURRENT SCENARIO", style=scenario_legend_box)
+# ], style=custom_legend_style)
 
 left_spatial_time_dropdown = dcc.Dropdown(
     id="left-spatial-time-dropdown",
@@ -647,7 +644,7 @@ left_tabs = dcc.Tabs(id="left-tabs", value="aspacial", children=[
     dcc.Tab(label="A-Spatial", value="aspacial", children=[
         left_aspatial_topic_dropdown,
         left_aspatial_graph,
-        left_aspatial_legend
+    #    left_aspatial_legend
     ]),
     dcc.Tab(label="Spatial", value="spatial", children=[
         left_spatial_controls,
@@ -674,10 +671,10 @@ right_aspatial_graph = dcc.Graph(
     style={"height": "300px", "position": "relative", "top": "-15px"}
 )
 
-right_aspatial_legend = html.Div([
-    html.Span("BASELINE", style=baseline_legend_box),
-    html.Span("CURRENT SCENARIO", style=scenario_legend_box)
-], style=custom_legend_style)
+# right_aspatial_legend = html.Div([
+#     html.Span("BASELINE", style=baseline_legend_box),
+#     html.Span("CURRENT SCENARIO", style=scenario_legend_box)
+# ], style=custom_legend_style)
 
 right_spatial_time_dropdown = dcc.Dropdown(
     id="right-spatial-time-dropdown",
@@ -721,7 +718,7 @@ right_tabs = dcc.Tabs(id="right-tabs", value="aspacial", children=[
     dcc.Tab(label="A-Spatial", value="aspacial", children=[
         right_aspatial_topic_dropdown,
         right_aspatial_graph,
-        right_aspatial_legend
+      #  right_aspatial_legend
     ]),
     dcc.Tab(label="Spatial", value="spatial", children=[
         right_spatial_controls,
@@ -746,8 +743,8 @@ temp_extra_info = html.Div(
 )
 
 # Save button below the temperature info on right panel.
-temp_save_button = html.Button("Save Results", id="save-button",
-                style={"width": "90%", "padding": "10px", "fontSize": "0.8rem", "marginTop": "10px"})
+#temp_save_button = html.Button("Save Results", id="save-button",
+#                style={"width": "90%", "padding": "10px", "fontSize": "0.8rem", "marginTop": "10px"})
 
 instruction = html.Div("Adjust the sliders below to explore how different policy and environmental factors influence outcomes.",
                        style={"textAlign": "center", "marginBottom": "20px", "fontSize": "1.0rem"})
@@ -766,8 +763,8 @@ app.layout = html.Div([
             temp_f_indicator,
             temp_label,
             temp_extra_info,
-            temp_save_button
-        ], style={"width": "20%", "height": "415px", "display": "inline-block", "verticalAlign": "top", "padding": "20px", "border": "2px solid #D3D3D3", "borderRadius": "5px", "textAlign": "center"})
+      #      temp_save_button
+        ], style={"width": "20%", "height": "435px", "display": "inline-block", "verticalAlign": "top", "padding": "20px", "border": "2px solid #D3D3D3", "borderRadius": "5px", "textAlign": "center"})
     ]),
     html.Div([cat1_panel, cat2_panel, cat3_panel], style={"width": "100%", "textAlign": "center"}),
     html.Div("© GEARS (Geospatial Enabler Analytics Resources System and Platform) - Telkom Indonesia", style={"textAlign": "center", "fontSize": "12px", "color": "gray"})
@@ -1082,21 +1079,21 @@ def save_map_images_and_simulation():
         print("Error saving images and XLS:", e)
         return False
 
-@app.callback(
-    Output("save-button", "style"),
-    Input("save-button", "n_clicks")
-)
-def update_save_button(n_clicks):
-    base_style = {"width": "90%", "padding": "10px", "fontSize": "0.8rem", "marginTop": "5px"}
-    if n_clicks is None or n_clicks == 0:
-        return base_style
-    success = save_map_images_and_simulation()
-    style = base_style.copy()
-    if success:
-        style.update({"backgroundColor": "green", "color": "white"})
-    else:
-        style.update({"backgroundColor": "red", "color": "white"})
-    return style
+# @app.callback(
+#     Output("save-button", "style"),
+#     Input("save-button", "n_clicks")
+# )
+# def update_save_button(n_clicks):
+#     base_style = {"width": "90%", "padding": "10px", "fontSize": "0.8rem", "marginTop": "5px"}
+#     if n_clicks is None or n_clicks == 0:
+#         return base_style
+#     success = save_map_images_and_simulation()
+#     style = base_style.copy()
+#     if success:
+#         style.update({"backgroundColor": "green", "color": "white"})
+#     else:
+#         style.update({"backgroundColor": "red", "color": "white"})
+#     return style
 
 ##########################
 # 7. ASK.AI CALLBACKS
