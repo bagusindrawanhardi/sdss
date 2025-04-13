@@ -405,8 +405,8 @@ baseline_stocks, baseline_emissions, baseline_land_conv, baseline_adaptation, ba
 ##########################
 # 4. DASH APP LAYOUT
 ##########################
-app = dash.Dash(__name__)
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 
 app.title = "SDSS Spatial Decision Support System for Climate Action"
 
