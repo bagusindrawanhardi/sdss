@@ -581,7 +581,7 @@ description_content = html.Div(
      ], style={"marginBottom": "20px", "fontSize": "0.9rem", "borderBottom": "1px solid #ccc", "paddingBottom": "10px"})
      for topic in topic_descriptions.keys()
     ],
-    style={"padding": "20px", "overflowY": "auto", "maxHeight": "400px", "wordWrap": "break-word", "boxSizing": "border-box"}
+    style={"padding": "20px", "overflowY": "auto", "maxHeight": "350px", "wordWrap": "break-word", "boxSizing": "border-box"}
 )
 
 right_description_content = description_content
