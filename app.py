@@ -252,7 +252,7 @@ aspatial_fixed_ranges = {
     "population": (1000, 2000),
     "natural_cover": (500, 1000),
     "biodiversity": (950, 1000),
-    "sea_level": (-0.5, 2),
+    "sea_level": (0, 50),
     "resilience": (0, 100),
     "infrastructure": (0, 150),
     "water": (0, 1000),
