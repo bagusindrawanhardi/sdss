@@ -739,8 +739,8 @@ temp_f_indicator = html.Div(id="temp-f-indicator", style={"justifyContent": "cen
 temp_label = html.Div("Temperature Increase by 2100", style={"justifyContent": "center", "fontSize": "1rem", "marginTop": "10px", "fontWeight": "bold", "color": "#333", "height": "73px"})
 temp_extra_info = html.Div(
     "The temperature increase is measured relative to a pre-industrial benchmark (around 14°C). "
-    "This baseline represents average global temperatures before significant industrialization. "
-    "Limiting the warming to 1.5°C or 2°C above this level is essential to avoid severe impacts.",
+  #  "This baseline represents average global temperatures before significant industrialization. "
+  #  "Limiting the warming to 1.5°C or 2°C above this level is essential to avoid severe impacts.",
     style={"fontSize": "0.9rem", "marginTop": "10px", "marginBottom": "20px", "color": "#555"}
 )
 
