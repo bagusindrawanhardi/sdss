@@ -405,6 +405,8 @@ scenario_legend_box = {
 # 4. DASH APP LAYOUT
 ##########################
 app = dash.Dash(__name__)
+server = app.server
+
 app.title = "SDSS Spatial Decision Support System for Climate Action"
 
 slider_tooltips = {
