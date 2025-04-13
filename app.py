@@ -1,6 +1,7 @@
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output, State
+import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
 import plotly.io as pio
 import numpy as np
@@ -404,7 +405,8 @@ scenario_legend_box = {
 ##########################
 # 4. DASH APP LAYOUT
 ##########################
-app = dash.Dash(__name__)
+#app = dash.Dash(__name__)
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server
 
 app.title = "SDSS Spatial Decision Support System for Climate Action"
