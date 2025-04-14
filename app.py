@@ -634,7 +634,7 @@ left_spatial_graph = dcc.Graph(id="left-spatial-map", style={"height": "600px", 
 left_ask_ai_content = html.Div([
     dcc.Textarea(
         id="left-ask-ai-input",
-        placeholder="How bad our temperature in 2045? or What is the change in biodiversity from 2030 to 2050?",
+        placeholder="How bad our temperature in 2045? or How much the change in biodiversity from 2030 to 2050?",
         style={"width": "100%", "height": "100px"}
     ),
     html.Br(),
@@ -708,7 +708,7 @@ right_spatial_graph = dcc.Graph(id="right-spatial-map", style={"height": "600px"
 right_ask_ai_content = html.Div([
     dcc.Textarea(
         id="right-ask-ai-input",
-        placeholder="How bad our temperature in 2045? or What is the change in biodiversity from 2030 to 2050?",
+        placeholder="How bad our temperature in 2045? or How much the change in biodiversity from 2030 to 2050?",
         style={"width": "100%", "height": "100px"}
     ),
     html.Br(),
